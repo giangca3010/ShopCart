@@ -148,7 +148,7 @@
       <workItem from="1601037865180" duration="1402000" />
       <workItem from="1601048728746" duration="3667000" />
       <workItem from="1601057059307" duration="1925000" />
-      <workItem from="1601087727848" duration="2429000" />
+      <workItem from="1601087727848" duration="17679000" />
     </task>
     <servers />
   </component>
@@ -176,13 +176,21 @@
       <screen x="43" y="27" width="1323" height="741" />
     </state>
     <state x="193" y="31" key="SettingsEditor/43.27.1323.741@43.27.1323.741" timestamp="1600967679021" />
+    <state x="143" y="125" width="1123" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601090912311">
+      <screen x="43" y="27" width="1323" height="741" />
+    </state>
+    <state x="143" y="125" width="1123" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog/43.27.1323.741@43.27.1323.741" timestamp="1601090912311" />
+    <state x="395" y="135" width="618" height="522" key="find.popup" timestamp="1601111334711">
+      <screen x="43" y="27" width="1323" height="741" />
+    </state>
+    <state x="395" y="135" width="618" height="522" key="find.popup/43.27.1323.741@43.27.1323.741" timestamp="1601111334711" />
     <state x="368" y="175" key="run.anything.popup" timestamp="1601056815988">
       <screen x="43" y="27" width="1323" height="741" />
     </state>
     <state x="368" y="175" key="run.anything.popup/43.27.1323.741@43.27.1323.741" timestamp="1601056815988" />
-    <state x="367" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601058095196">
+    <state x="367" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601110728138">
       <screen x="43" y="27" width="1323" height="741" />
     </state>
-    <state x="367" y="89" width="672" height="678" key="search.everywhere.popup/43.27.1323.741@43.27.1323.741" timestamp="1601058095196" />
+    <state x="367" y="89" width="672" height="678" key="search.everywhere.popup/43.27.1323.741@43.27.1323.741" timestamp="1601110728138" />
   </component>
 </project>

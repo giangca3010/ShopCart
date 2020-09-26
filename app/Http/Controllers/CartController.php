@@ -11,28 +11,36 @@ class CartController extends Controller
     public function index()
     {
         $products = DB::table('product')->get();
-        return view('index', compact('products'));
+        $currentCart = Session('cart') ? Session('cart') : null;
+        $totalQuanty = $currentCart->totalQuanty ?? 0;
+//        dd($totalQuanty);
+        return view('index', compact('products', 'totalQuanty'));
+    }
+
+    public function listCart()
+    {
+        $newCart = Session('cart') ? Session('cart') : null;
+        return view('cart', compact('newCart'));
     }
 
     public function addToCart(Request $req, $id)
     {
         $product = DB::table('product')->where('id', $id)->first();
-        if ( isset($product) ) {
+        if (isset($product)) {
             $oldCart = Session('cart') ? Session('cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->AddCart($product, $id);
             $req->session()->put('cart', $newCart);
-            return response()->json($newCart, 200);
+            $totalQuanty = $newCart->totalQuanty ?? 0;
         }
-
-//        return view('cart', compact('newCart'));
+        return view('cart', compact('newCart', 'totalQuanty'));
     }
 
     public function deleteCart(Request $req, $id)
     {
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
-        $newCart->DeleteItemCart($id);
+        $newCart->DeleteItemCart(trim($id));
 
         if (count($newCart->products) > 0) {
             $req->session()->put('cart', $newCart);
@@ -41,6 +49,12 @@ class CartController extends Controller
         }
         return view('cart', compact('newCart'));
 
+    }
+
+    public function getQuantyCart()
+    {
+        $currentCart =  Session('cart') ? Session('cart') : null;
+        return $currentCart->totalQuanty ?? 0;
     }
 
 }
