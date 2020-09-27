@@ -17,16 +17,10 @@ class CartController extends Controller
         return view('index', compact('products', 'totalQuanty'));
     }
 
-    public function listCart()
-    {
-        $newCart = Session('cart') ? Session('cart') : null;
-        return view('cart', compact('newCart'));
-    }
-
     public function addToCart(Request $req, $id)
     {
         $product = DB::table('product')->where('id', $id)->first();
-        if (isset($product)) {
+        if ($product != null) {
             $oldCart = Session('cart') ? Session('cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->AddCart($product, $id);
@@ -57,4 +51,33 @@ class CartController extends Controller
         return $currentCart->totalQuanty ?? 0;
     }
 
+    public function viewListCart()
+    {
+        return view('list');
+    }
+
+    public function deleteItemListCart(Request $req, $id)
+    {
+        $oldCart = Session('cart') ? Session('cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->DeleteItemCart(trim($id));
+
+        if (count($newCart->products) > 0) {
+            $req->session()->put('cart', $newCart);
+        } else {
+            $req->Session()->forget('cart');
+        }
+        return view('list-cart', compact('newCart'));
+    }
+
+    public function saveItemListCart(Request $req, $id, $quanty)
+    {
+        $oldCart = Session('cart') ? Session('cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->UpdateItemCart(trim($id), $quanty);
+
+        $req->session()->put('cart', $newCart);
+
+        return view('list-cart', compact('newCart'));
+    }
 }

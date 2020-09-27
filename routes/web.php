@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'CartController@index');
 Route::get('/Add-Cart/{id}', 'CartController@addToCart');
-Route::get('/list-cart', 'CartController@listCart');
-Route::get('/get-quanty-cart', 'CartController@getQuantyCart');
 Route::get('/Delete-Item-Cart/{id}', 'CartController@deleteCart');
+Route::get('/get-quanty-cart', 'CartController@getQuantyCart');
+
+Route::get('/List-Cart', 'CartController@viewListCart');
+Route::get('/Delete-Item-List-Cart/{id}', 'CartController@deleteItemListCart');
+Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'CartController@saveItemListCart');
+
+
+
 

@@ -88,6 +88,11 @@ img {
 	max-width: 100%;
 }
 
+.img-view-cart{
+    max-width: 100%;
+    width: 100px !important;
+}
+
 input:focus,
 select:focus,
 button:focus,

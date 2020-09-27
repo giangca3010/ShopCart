@@ -4,6 +4,8 @@
 namespace App;
 
 
+use Illuminate\Http\Request;
+
 class Cart
 {
     public $products = null;
@@ -37,8 +39,22 @@ class Cart
 
     public function DeleteItemCart($id)
     {
+
         $this->totalQuanty -= $this->products[$id]['quanty'];
         $this->totalPrice -= $this->products[$id]['price'];
         unset($this->products[$id]);
+    }
+
+    public function UpdateItemCart($id, $quanty)
+    {
+        $this->totalQuanty -= $this->products[$id]['quanty'];
+        $this->totalPrice -= $this->products[$id]['price'];
+
+        $this->products[$id]['quanty'] = $quanty;
+        $this->products[$id]['price'] = $quanty * $this->products[$id]['productInfo']->price;
+
+        $this->totalQuanty += $this -> products[$id]['quanty'];
+        $this->totalPrice += $this -> products[$id]['price'];
+
     }
 }
